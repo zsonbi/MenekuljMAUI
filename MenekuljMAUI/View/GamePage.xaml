@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MenekuljMAUI.View.GamePage"
+             Title="GamePage">
+    <ScrollView>
+        <VerticalStackLayout
+          Spacing="25"
+          Padding="30,0"
+          VerticalOptions="Center">
+
+            <!--<Image
+              Source="dotnet_bot.png"
+              SemanticProperties.Description="Cute dot net bot waving hi to you!"
+              HeightRequest="200"
+              HorizontalOptions="Center" />
+
+          <Label
+              Text="Hello, World!"
+              SemanticProperties.HeadingLevel="Level1"
+              FontSize="32"
+              HorizontalOptions="Center" />
+
+          <Label
+              Text="Welcome to .NET Multi-platform App UI"
+              SemanticProperties.HeadingLevel="Level2"
+              SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+              FontSize="18"
+              HorizontalOptions="Center" />
+
+          <Button
+              x:Name="CounterBtn"
+              Text="Click me"
+              SemanticProperties.Hint="Counts the number of times you click"
+              Clicked="OnCounterClicked"
+              HorizontalOptions="Center" />-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+            </Grid>
+
+
+            <!--<CollectionView ItemsSource="{Binding ViewModelCells}" Grid.Row="1">
+
+              <CollectionView.ItemsLayout>
+                  <GridItemsLayout Orientation="Vertical" Span="{Binding MatrixSize}" />
+                  
+                  
+              </CollectionView.ItemsLayout>
+              
+              
+              <CollectionView.ItemTemplate>
+
+                  <DataTemplate>
+
+                          <Button Text="1" >
+
+                          <Button.Style>
+                              <Style TargetType="Button" >
+                                  <Style.Triggers>
+                                      <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="0">
+                                          <Setter Property="Background" Value="LightGray">
+                                          </Setter>
+                                      </DataTrigger>
+                                      <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="1">
+                                          <Setter Property="Background" Value="Green"/>
+                                      </DataTrigger>
+                                      <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="2">
+                                          <Setter Property="Background" Value="Red"/>
+                                      </DataTrigger>
+                                      <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="3">
+                                          <Setter Property="Background" Value="Black"/>
+                                      </DataTrigger>
+                                      </Style.Triggers>
+
+                              </Style>
+                          </Button.Style>
+                              
+                          </Button>
+
+                      
+                  </DataTemplate>
+
+              </CollectionView.ItemTemplate>
+          </CollectionView>-->
+
+
+            <Grid
+              Grid.Row="1"
+              BindableLayout.ItemsSource="{Binding ViewModelCells}"
+              RowDefinitions="{Binding GameTableRows}"
+              ColumnDefinitions="{Binding GameTableColumns}"
+              ColumnSpacing="4"
+              RowSpacing="4">
+                <!-- a játéktáblát egy sorfolytos listával valósítjuk meg -->
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <!-- a rács elemei gombok lesznek -->
+                        <Button
+              Grid.Row="{Binding Row}"
+              Grid.Column="{Binding Col}"
+                Text="{Binding CellType}"
+              IsEnabled="False"
+              Padding="0"
+              FontAttributes="Bold"
+              FontSize="Medium"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+                            >
+                            <Button.Style>
+                                <Style TargetType="Button" >
+                                    <Style.Triggers>
+                                        <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="0">
+                                            <Setter Property="Background" Value="LightGray">
+                                            </Setter>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="1">
+                                            <Setter Property="Background" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="2">
+                                            <Setter Property="Background" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="3">
+                                            <Setter Property="Background" Value="Black"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </Grid>
+
+
+        </VerticalStackLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>
