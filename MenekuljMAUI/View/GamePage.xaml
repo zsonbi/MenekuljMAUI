@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MenekuljMAUI.View.GamePage"
              Title="GamePage"
-             NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False">
+             NavigatedFrom="ContentPage_NavigatedFrom"
+            >
 
     <FlexLayout AlignContent="Stretch" >
       
@@ -13,7 +13,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -74,7 +74,7 @@
             </Grid>
 
             <HorizontalStackLayout Grid.Row="2">
-                <Button Text="Left"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="0">
+                <Button Text="←" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60" BackgroundColor="Gray" CommandParameter="0">
                     <Button.Style>
                         <Style TargetType="Button" >
                             <Style.Triggers>
@@ -85,7 +85,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Text="Up"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="1">
+                <Button Text="↑" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="1">
                     <Button.Style>
                         <Style TargetType="Button" >
                             <Style.Triggers>
@@ -96,7 +96,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Text="Right"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="2">
+                <Button Text="→" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="2">
                     <Button.Style>
                         <Style TargetType="Button" >
                             <Style.Triggers>
@@ -107,7 +107,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Text="Down"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="3">
+                <Button Text="↓" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="3">
                     <Button.Style>
                         <Style TargetType="Button" >
                             <Style.Triggers>
