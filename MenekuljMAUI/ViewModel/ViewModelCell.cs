@@ -12,7 +12,6 @@ namespace ViewModel
     public class ViewModelCell : ViewModelBase
     {
   
-        public DelegateCommand? StepCommand { get; set; }
 
         private Menekulj.Model.Cell cellType;
 

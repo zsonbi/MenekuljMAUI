@@ -2,15 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MenekuljMAUI.View.GamePage"
-             Title="GamePage">
-    <FlexLayout AlignContent="Stretch">
+             Title="GamePage"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <FlexLayout AlignContent="Stretch" >
       
         
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"></RowDefinition>
-                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
             </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Text="Pause" Command="{Binding PauseCommand}" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+                
+                
+            </Grid>
+
+
+      
 
 
             <Grid
@@ -24,41 +37,92 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <!-- a rács elemei gombok lesznek -->
-                        <Button
+                        <ImageButton
               Grid.Row="{Binding Row}"
               Grid.Column="{Binding Col}"
            
               IsEnabled="False"
               Padding="0"
-              FontAttributes="Bold"
-              FontSize="Medium"
-              VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
+
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill"
                             >
-                            <Button.Style>
-                                <Style TargetType="Button" >
+                            <ImageButton.Style>
+                                <Style TargetType="ImageButton" >
                                     <Style.Triggers>
-                                        <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="0">
+                                        <DataTrigger TargetType="ImageButton" Binding="{Binding CellType}" Value="0">
                                             <Setter Property="Background" Value="LightGray">
                                             </Setter>
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="1">
+                                        <DataTrigger TargetType="ImageButton"  Binding="{Binding CellType}" Value="1">
+                                            <!--<Setter Property="Source" Value="./Images/player.png"/>-->
                                             <Setter Property="Background" Value="Green"/>
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Button" Binding="{Binding CellType}" Value="2">
+                                        <DataTrigger TargetType="ImageButton" Binding="{Binding CellType}" Value="2">
                                             <Setter Property="Background" Value="Red"/>
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Button"  Binding="{Binding CellType}" Value="3">
+                                        <DataTrigger TargetType="ImageButton"  Binding="{Binding CellType}" Value="3">
                                             <Setter Property="Background" Value="#3a3a3b"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </Button.Style>
-                        </Button>
+                            </ImageButton.Style>
+                        </ImageButton>
 
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </Grid>
+
+            <HorizontalStackLayout Grid.Row="2">
+                <Button Text="Left"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="0">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="0">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="Up"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="1">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="1">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="Right"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="2">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="2">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="Down"  Command="{Binding ChangeDirectionCommand}" BackgroundColor="Gray" CommandParameter="3">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="3">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+            </HorizontalStackLayout>
+
+
         </Grid>
 
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿#nullable enable
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace Menekulj.Model
@@ -163,8 +164,6 @@ namespace Menekulj.Model
         /// <summary>
         /// A single tick of the game move every entity once
         /// </summary>
-        /// <param name="sender">The object which triggered this event</param>
-        /// <param name="args">What was the event</param>
         public async Task Tick()
         {
             HandleMovement();
