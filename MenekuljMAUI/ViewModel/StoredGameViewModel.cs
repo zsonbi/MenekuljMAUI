@@ -35,8 +35,8 @@ namespace Menekulj.ViewModel
 
         public StoredGameViewModel(string name, DateTime modified)
         {
-            this.Name= name;
-            this.Modified = modified;   
+            this.name= name;
+            this.modified = modified;   
         }
     }
 

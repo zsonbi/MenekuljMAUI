@@ -51,7 +51,7 @@ public partial class MenuPage : ContentPage
 
     private void ExitBtn_Click(object sender, EventArgs e)
     {
-        Application.Current.Quit();
+        Application.Current?.Quit();
     }
 
 

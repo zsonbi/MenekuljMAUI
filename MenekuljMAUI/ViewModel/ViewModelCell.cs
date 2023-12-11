@@ -1,5 +1,4 @@
 ﻿using Menekulj.Model;
-
 using Menekulj.ViewModel;
 using System;
 using System.Collections.Generic;

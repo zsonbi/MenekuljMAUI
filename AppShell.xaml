@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MenekuljMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MenekuljMAUI"
+    xmlns:view="clr-namespace:MenekuljMAUI.View"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate view:MenuPage}"
+        Route="GamePage" >
+
+    </ShellContent>
+
+
+
+
+
+</Shell>

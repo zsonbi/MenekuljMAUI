@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MenekuljMAUI.View.GamePage"
+             Title="GamePage"
+             NavigatedFrom="ContentPage_NavigatedFrom"
+            >
+
+    <FlexLayout AlignContent="Stretch" >
+      
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Text="Pause" Command="{Binding PauseCommand}" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+                
+                
+            </Grid>
+
+
+      
+
+
+            <Grid
+              Grid.Row="1"
+              BindableLayout.ItemsSource="{Binding ViewModelCells}"
+              RowDefinitions="{Binding GameTableRows}"
+              ColumnDefinitions="{Binding GameTableColumns}"
+              ColumnSpacing="4"
+              RowSpacing="4">
+                <!-- a játéktáblát egy sorfolytos listával valósítjuk meg -->
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <!-- a rács elemei gombok lesznek -->
+                        <ImageButton
+              Grid.Row="{Binding Row}"
+              Grid.Column="{Binding Col}"
+           
+              IsEnabled="False"
+              Padding="0"
+
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill"
+                            >
+                            <ImageButton.Style>
+                                <Style TargetType="ImageButton" >
+                                    <Style.Triggers>
+                                        <DataTrigger TargetType="ImageButton" Binding="{Binding CellType}" Value="0">
+                                            <Setter Property="Background" Value="LightGray">
+                                            </Setter>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="ImageButton"  Binding="{Binding CellType}" Value="1">
+                                            <!--<Setter Property="Source" Value="./Images/player.png"/>-->
+                                            <Setter Property="Background" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="ImageButton" Binding="{Binding CellType}" Value="2">
+                                            <Setter Property="Background" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="ImageButton"  Binding="{Binding CellType}" Value="3">
+                                            <Setter Property="Background" Value="#3a3a3b"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ImageButton.Style>
+                        </ImageButton>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </Grid>
+
+            <HorizontalStackLayout Grid.Row="2">
+                <Button Text="←" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60" BackgroundColor="Gray" CommandParameter="0">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="0">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="↑" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="1">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="1">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="→" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="2">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="2">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Text="↓" FontSize="Large" Command="{Binding ChangeDirectionCommand}" WidthRequest="60"  BackgroundColor="Gray" CommandParameter="3">
+                    <Button.Style>
+                        <Style TargetType="Button" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding CurrentDir}" Value="3">
+                                    <Setter Property="BackgroundColor" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+            </HorizontalStackLayout>
+
+
+        </Grid>
+
+
+    </FlexLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

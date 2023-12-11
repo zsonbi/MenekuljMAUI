@@ -23,7 +23,7 @@
             </Grid>
 
 
-      
+
 
 
             <Grid
@@ -33,10 +33,9 @@
               ColumnDefinitions="{Binding GameTableColumns}"
               ColumnSpacing="4"
               RowSpacing="4">
-                <!-- a játéktáblát egy sorfolytos listával valósítjuk meg -->
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <!-- a rács elemei gombok lesznek -->
+
                         <ImageButton
               Grid.Row="{Binding Row}"
               Grid.Column="{Binding Col}"

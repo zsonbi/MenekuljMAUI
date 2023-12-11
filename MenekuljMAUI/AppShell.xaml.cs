@@ -1,4 +1,4 @@
-﻿#nullable enable
+﻿
 using MenekuljMAUI.View;
 using Microsoft.Maui.Controls;
 
@@ -11,7 +11,7 @@ public partial class AppShell : Shell
     public AppShell(Menekulj.ViewModel.ViewModel viewModel)
     {
 
-
+        this.BindingContext = viewModel;
         this.viewModel = viewModel;
         viewModel.GameOver += GameOverEvent;
         viewModel.OnNewGame += NewGameEvent;
@@ -96,7 +96,7 @@ public partial class AppShell : Shell
                   if (await DisplayAlert("Result", message, accept: "New Game", cancel: "Exit game"))
                   {
                     //  await Navigation.PopAsync();
-                      viewModel.NewGameCommand.Execute(null);
+                      viewModel?.NewGameCommand?.Execute(null);
 
                   }
                   else

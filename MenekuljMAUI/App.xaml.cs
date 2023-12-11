@@ -4,7 +4,6 @@ namespace MenekuljMAUI;
 
 public partial class App : Application
 {
-    private Menekulj.ViewModel.ViewModel viewModel;
     public App()
 	{
         string mainDir = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "saves");
@@ -16,9 +15,9 @@ public partial class App : Application
 
 
         InitializeComponent();
-		viewModel = new Menekulj.ViewModel.ViewModel();
-		MainPage = new AppShell(viewModel) {
-			BindingContext = viewModel
+
+		MainPage = new AppShell(new Menekulj.ViewModel.ViewModel()) {
+	
 		};
 	}
 

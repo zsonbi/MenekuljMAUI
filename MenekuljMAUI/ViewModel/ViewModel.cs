@@ -1,4 +1,4 @@
-﻿#nullable enable
+﻿
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,9 +20,9 @@ namespace Menekulj.ViewModel
         public event EventHandler? OnSaving;
         public event EventHandler? OnLoading;
 
-        public DelegateCommand LoadGameCommand { get; private set; }
+        public DelegateCommand? LoadGameCommand { get; private set; }
         public DelegateCommand? SaveGameCommand { get; private set; }
-        public DelegateCommand NewGameCommand { get; private set; }
+        public DelegateCommand? NewGameCommand { get; private set; }
         public DelegateCommand? PauseCommand { get; private set; }
         public DelegateCommand? ResumeCommand { get; private set; }
         public DelegateCommand? ChangeDirectionCommand { get; private set; }
